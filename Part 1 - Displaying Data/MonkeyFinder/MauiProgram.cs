@@ -15,11 +15,15 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 			});
 
+		builder.Services.AddSingleton<IMonkeyNavService, MonkeyNavService>();
+
 		builder.Services.AddSingleton<MonkeyService>();
 
+        builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<MonkeysViewModel>();
 
-		builder.Services.AddSingleton<MainPage>();
+		builder.Services.AddTransient<DetailsPage>();		
+		builder.Services.AddTransient<MonkeyDetailsViewModel>();        
 
 		return builder.Build();
 	}

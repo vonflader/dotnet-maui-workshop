@@ -22,8 +22,11 @@ public class MonkeyService
         
         if (response.IsSuccessStatusCode)
         {
+            Debug.WriteLine("Online mode used");
             return await response.Content.ReadFromJsonAsync<List<Monkey>>();
         }
+
+        Debug.WriteLine("Offline version used");
        
         // offline version
         using var stream = await FileSystem.OpenAppPackageFileAsync("monkeydata.json");
