@@ -8,5 +8,7 @@ public class MonkeyNavService : IMonkeyNavService
             {
                 {"Monkey", monkey }
             });
-    
+
+    public async Task GoBack() =>
+        await Shell.Current.GoToAsync("..");
 }
