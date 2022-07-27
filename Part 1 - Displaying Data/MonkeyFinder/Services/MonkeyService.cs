@@ -26,13 +26,13 @@ public class MonkeyService
             return await response.Content.ReadFromJsonAsync<List<Monkey>>();
         }
 
-        Debug.WriteLine("Offline version used");
+        //Debug.WriteLine("Offline version used");
        
-        // offline version
-        using var stream = await FileSystem.OpenAppPackageFileAsync("monkeydata.json");
-        using var reader = new StreamReader(stream);
-        var contents = await reader.ReadToEndAsync();
-        monkeys = JsonSerializer.Deserialize<List<Monkey>>(contents);
+        //// offline version
+        //using var stream = await FileSystem.OpenAppPackageFileAsync("monkeydata.json");
+        //using var reader = new StreamReader(stream);
+        //var contents = await reader.ReadToEndAsync();
+        //monkeys = JsonSerializer.Deserialize<List<Monkey>>(contents);
 
         return monkeys;
     }
